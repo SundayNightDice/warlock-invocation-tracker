@@ -17,8 +17,8 @@ const Effect = ({ effect, invocation }) =>
 const Pluralized = ({ value, text, plural }) =>
   <p><strong>{value}</strong>{` ${text}${value > 1 ? plural : ''}`}</p>;
 
-const EldritchBlast = ({ activeInvocations, checked, invocations, level, onChange }) => (
-  <section className="eldritchBlast">
+const EldritchBlast = ({ activeInvocations, checked, invocations, level, onChange, className }) => (
+  <section className={`eldritchBlast ${className}`}>
     <Checkbox
       value={checked}
       onChange={onChange}>

@@ -2,6 +2,7 @@ import React from 'react';
 import EldritchBlast from './eldritchBlast';
 import Invocations from './invocations';
 import LevelSelector from './levelSelector';
+import PactWeapon from './pactWeapon';
 import RenderIf from './renderIf';
 import patrons from './data/patrons';
 import pacts from './data/pacts';
@@ -22,33 +23,45 @@ const App = ({
       <section>
         <div>
           <LevelSelector
+            className="warlock-option"
             label="Level"
             value={level}
             onChange={onLevelChange} />
-          <ul>
-            <li>Proficiency Bonus: <strong>{ `+${proficiencyBonus(level)}` }</strong></li>
-          </ul>
+          <div className="warlock-option">
+            Proficiency Bonus: <strong>{ `+${proficiencyBonus(level)}` }</strong>
+          </div>
         </div>
         <div>
-          <label>Patron: <select onChange={e => onPatronChange(e.target.value)}>
-            <option value="">Select...</option>
-            { patrons.map(p => <option value={p.name} key={p.name}>{p.value}</option>) }
-          </select></label>
+            <div className="warlock-option">
+              <label>Patron: <select onChange={e => onPatronChange(e.target.value)}>
+                <option value="">Select...</option>
+                { patrons.map(p => <option value={p.name} key={p.name}>{p.value}</option>) }
+              </select></label>
+            </div>
+          <RenderIf condition={() => level >= 3}>
+            <div className="warlock-option">
+              <label>Pact: <select onChange={e => onPactChange(e.target.value)}>
+                <option value="">Select...</option>
+                { pacts.map(p => <option value={p.name} key={p.name}>{p.value}</option>) }
+              </select></label>
+            </div>
+          </RenderIf>
         </div>
-        <RenderIf condition={() => level >= 3}>
-          <div>
-            <label>Pact: <select onChange={e => onPactChange(e.target.value)}>
-              <option value="">Select...</option>
-              { pacts.map(p => <option value={p.name} key={p.name}>{p.value}</option>) }
-            </select></label>
-          </div>
-        </RenderIf>
-        <EldritchBlast
-          checked={eldritch}
-          invocations={invocations}
-          activeInvocations={activeInvocations}
-          level={level}
-          onChange={onEldritchChange} />
+        <div className="impacts">
+          <EldritchBlast
+            className="warlock-option"
+            checked={eldritch}
+            invocations={invocations}
+            activeInvocations={activeInvocations}
+            level={level}
+            onChange={onEldritchChange} />
+          <RenderIf condition={() => pact === 'blade'}>
+            <PactWeapon
+              className="warlock-option"
+              invocations={invocations}
+              activeInvocations={activeInvocations} />
+          </RenderIf>
+        </div>
         <Invocations
           activeInvocations={activeInvocations}
           eldritch={eldritch}

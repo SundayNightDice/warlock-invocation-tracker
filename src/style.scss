@@ -1,4 +1,14 @@
 #root {
+
+  .warlock-option {
+    display: inline-block;
+    margin-right: 12px;
+  }
+
+  .impacts {
+    display: flex;
+  }
+
   section {
     border-left: 4px solid #9013FE;
     padding: 8px;
@@ -7,16 +17,15 @@
       margin-bottom: 12px;
     }
 
-    .eldritchBlast {
+    .eldritchBlast, .pactWeapon {
       border: none;
-      padding: 0;
+      padding-left: 0;
 
       header {
         display: inline-block;
 
         .icon {
           display: inline-block;
-          background-image: url('assets/bolt-spell-cast.png');
           background-size: contain;
           width: 28px;
           height: 28px;
@@ -42,6 +51,18 @@
         margin-left: 12px;
         font-variant: small-caps;
         font-style: italic;
+      }
+    }
+
+    .eldritchBlast {
+      .icon {
+        background-image: url('assets/bolt-spell-cast.png');
+      }
+    }
+
+    .pactWeapon {
+      .icon {
+        background-image: url('assets/rune-sword.png');
       }
     }
   }

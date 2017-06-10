@@ -21,7 +21,7 @@ const Invocations = ({ activeInvocations, eldritch, invocations, level, patron, 
   return (
     <RenderIf condition={() => totalInvocations}>
       <div>
-        <h2>Invocations Available</h2>
+        <h3>Invocations Available</h3>
         <span>Invocations Known: <strong>{ totalInvocations }</strong></span>
         <ul>
           {

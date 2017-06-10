@@ -1,7 +1,7 @@
 import React from 'react';
 
-const LevelSelector = ({ value, onChange, label }) => (
-  <label>
+const LevelSelector = ({ value, onChange, label, className }) => (
+  <label className={className}>
     {`${label}: `}
     <input
       type="number"
