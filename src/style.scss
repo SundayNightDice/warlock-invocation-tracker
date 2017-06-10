@@ -1,0 +1,79 @@
+#root {
+  section {
+    border-left: 4px solid #9013FE;
+    padding: 8px;
+
+    > div {
+      margin-bottom: 12px;
+    }
+
+    .eldritchBlast {
+      border: none;
+
+      header {
+        display: inline-block;
+
+        .icon {
+          display: inline-block;
+          background-image: url('assets/bolt-spell-cast.png');
+          background-size: contain;
+          width: 28px;
+          height: 28px;
+          vertical-align: bottom;
+        }
+
+        h3 {
+          display: inline-block;
+          margin: 0 0 0 12px;
+        }
+      }
+
+      ul {
+        list-style-type: none;
+      }
+
+      .invocation {
+        margin-left: 12px;
+        font-variant: small-caps;
+        font-style: italic;
+      }
+    }
+  }
+
+  footer {
+    .version {
+      margin-right: 8px;
+    }
+
+    .version, .source {
+      font-size: 12px;
+    }
+  }
+
+  input {
+    margin: 3px 3px 3px 0;
+  }
+
+  input[type=number] {
+    width: 36px;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 16px;
+    padding-top: 4px;
+
+    > li {
+      font-family: 'Helvetica', sans-serif;
+      font-size: 14px;
+    }
+  }
+
+  strong {
+    color: #9013FE;
+  }
+
+  .disabled {
+    color: #ccc;
+  }
+}
