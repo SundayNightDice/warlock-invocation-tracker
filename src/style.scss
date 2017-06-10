@@ -9,6 +9,7 @@
 
     .eldritchBlast {
       border: none;
+      padding: 0;
 
       header {
         display: inline-block;
@@ -20,12 +21,17 @@
           width: 28px;
           height: 28px;
           vertical-align: bottom;
+          margin-left: 8px;
         }
 
         h3 {
           display: inline-block;
           margin: 0 0 0 12px;
         }
+      }
+
+      div, p {
+        margin-bottom: 0;
       }
 
       ul {

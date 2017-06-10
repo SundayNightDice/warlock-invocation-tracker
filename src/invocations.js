@@ -13,7 +13,7 @@ const invocationsKnown = (level) => {
   else return 0;
 };
 
-const Invocations = ({ activeInvocations, invocations, level, patron, pact, onChange }) => {
+const Invocations = ({ activeInvocations, eldritch, invocations, level, patron, pact, onChange }) => {
   const totalSelected = Object.keys(activeInvocations)
     .filter(x => activeInvocations[x])
     .length;
@@ -30,16 +30,18 @@ const Invocations = ({ activeInvocations, invocations, level, patron, pact, onCh
                 const correctLevel = i.hasOwnProperty('minLevel') ? level >= i.minLevel : true;
                 const correctPact = i.hasOwnProperty('pact') ? i.pact === (pact || '') : true;
                 const correctPatron = i.hasOwnProperty('patron') ? i.patorn === (patron || '') : true;
+                const eldritchBlast = i.hasOwnProperty('eldritchBlast') ? i.eldritchBlast === eldritch : true;
 
-                return correctLevel && correctPact && correctPatron;
+                return correctLevel && correctPact && correctPatron && eldritchBlast;
               })
               .map(i =>
                 <li key={i.id}>
                   <Checkbox
-                    label={i.name}
                     value={activeInvocations[i.id]}
                     disabled={activeInvocations[i.id] ? false : totalSelected === totalInvocations}
-                    onChange={checked => onChange(i.id, checked)} />
+                    onChange={checked => onChange(i.id, checked)}>
+                    {i.name}
+                  </Checkbox>
                 </li>
               )
           }

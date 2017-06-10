@@ -15,8 +15,8 @@ const proficiencyBonus = (level) => {
 };
 
 const App = ({
-  model: { activeInvocations, invocations, level, patron, pact },
-  onActiveInvocationChange, onPatronChange, onPactChange, onLevelChange,
+  model: { activeInvocations, eldritch, invocations, level, patron, pact },
+  onActiveInvocationChange, onEldritchChange, onPatronChange, onPactChange, onLevelChange,
   version, source }) => (
     <div>
       <section>
@@ -44,12 +44,15 @@ const App = ({
           </div>
         </RenderIf>
         <EldritchBlast
+          checked={eldritch}
           invocations={invocations}
           activeInvocations={activeInvocations}
-          level={level} />
+          level={level}
+          onChange={onEldritchChange} />
         <Invocations
-          invocations={invocations}
           activeInvocations={activeInvocations}
+          eldritch={eldritch}
+          invocations={invocations}
           level={level}
           pact={pact}
           patron={patron}

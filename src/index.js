@@ -13,6 +13,7 @@ class Container extends React.Component {
       level: 1,
       pact: null,
       patron: null,
+      eldritch: false,
       invocations: invocations,
       activeInvocations: invocations.reduce((map, obj) => {
         map[obj.id] = false;
@@ -29,6 +30,7 @@ class Container extends React.Component {
       onPactChange={ (v) => this.onChange(v, 'pact') }
       onPatronChange={ (v) => this.onChange(v, 'patron') }
       onLevelChange={ (v) => this.onChange(v, 'level') }
+      onEldritchChange={ (checked) => this.onChange(checked, 'eldritch') }
       onActiveInvocationChange={this.onActiveInvocationChange}
       version={version}
       source={repository.url} />;
