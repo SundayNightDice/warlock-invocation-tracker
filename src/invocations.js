@@ -40,7 +40,8 @@ const Invocations = ({ activeInvocations, eldritch, invocations, level, patron, 
                     value={activeInvocations[i.id]}
                     disabled={activeInvocations[i.id] ? false : totalSelected === totalInvocations}
                     onChange={checked => onChange(i.id, checked)}>
-                    {i.name}
+                    { i.name }
+                    { i.source ? ` [${i.source}]` : '' }
                   </Checkbox>
                 </li>
               )
